@@ -1,0 +1,369 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1024" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- LEVI BAR-->
+        <Grid Grid.Row="1" x:Name="GridLeftBar">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF403519" Offset="0.963"/>
+                    <GradientStop Color="#FF6E695D" Offset="0.612"/>
+                    <GradientStop Color="#FF7C6B3B" Offset="0.868"/>
+                    <GradientStop Color="#FF312F2A" Offset="0.719"/>
+                    <GradientStop Color="#FFCFA127" Offset="0.247"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="1">
+                <Button Name="btnKarta" Margin="10" Background="#ffcc66" BorderBrush="#FF0D0D0E" Click="btnKarta_Click">
+                    <Grid Width="150">
+
+                        <TextBlock HorizontalAlignment="Center" Text="Karta" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                    </Grid>
+                </Button>
+                <Button Name="btnKorisnik" Margin="10" Background="#ffcc66" BorderBrush="#FF0D0D0E" Click="btnKorisnik_Click">
+                    <Grid Width="150">
+
+                        <TextBlock HorizontalAlignment="Center" Text="Korisnik" FontFamily="Microsoft JhengHei UI" Foreground="#000000"/>
+                    </Grid>
+                </Button>
+                <Button Name="btnMarka" Margin="10" Background="#ffcc66" BorderBrush="#FF0D0D0E" Click="btnMarka_Click">
+                    <Grid Width="150">
+
+                        <TextBlock HorizontalAlignment="Center" Text="Marka vozila" FontFamily="Microsoft JhengHei UI" Foreground="#000000"/>
+                    </Grid>
+                </Button>
+                <Button Name="btnModel" Margin="10" Background="#ffcc66" BorderBrush="#FF0D0D0E" Click="btnModel_Click">
+                    <Grid Width="150">
+
+                        <TextBlock HorizontalAlignment="Center" Text="Model vozila" FontFamily="Microsoft JhengHei UI" Foreground="#000000"/>
+                    </Grid>
+                </Button>
+                <Button Name="btnTip" Margin="10" Background="#ffcc66" BorderBrush="#FF0D0D0E" Click="btnTip_Click">
+                    <Grid Width="150">
+
+                        <TextBlock HorizontalAlignment="Center" Text="Tip vozila" FontFamily="Microsoft JhengHei UI" Foreground="#000000"/>
+                    </Grid>
+                </Button>
+                <Button Name="btnPrevoznik" Margin="10" Background="#ffcc66" BorderBrush="#FF0D0D0E" Click="btnPrevoznik_Click">
+                    <Grid Width="150">
+
+                        <TextBlock HorizontalAlignment="Center" Text="Prevoznik" FontFamily="Microsoft JhengHei UI" Foreground="#000000"/>
+                    </Grid>
+                </Button>
+                <Button Name="btnRelacija" Margin="10" Background="#ffcc66" BorderBrush="#FF0D0D0E" Click="btnRelacija_Click">
+                    <Grid Width="150">
+
+                        <TextBlock HorizontalAlignment="Center" Text="Relacija" FontFamily="Microsoft JhengHei UI" Foreground="#000000"/>
+                    </Grid>
+                </Button>
+                <Button Name="btnVozac" Margin="10" Background="#ffcc66" BorderBrush="#FF0D0D0E" Click="btnVozac_Click">
+                    <Grid Width="150">
+
+                        <TextBlock HorizontalAlignment="Center" Text="Vozac" FontFamily="Microsoft JhengHei UI" Foreground="#000000"/>
+                    </Grid>
+                </Button>
+                <Button Name="btnVozilo" Margin="10" Background="#ffcc66" BorderBrush="#FF0D0D0E" Click="btnVozilo_Click">
+                    <Grid Width="150">
+
+                        <TextBlock HorizontalAlignment="Center" Text="Vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!--GORNJI BAR-->
+        <Grid x:Name="GridBarTop" Grid.ColumnSpan="2" Background="#ffcc66" MouseDown="GridBarTop_MouseDown">
+            
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Column="1">
+
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000">
+                    <materialDesign:PackIcon Kind="Account"/>
+                    
+                </Button>
+                <Button x:Name="ButtonCloseApp" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="ButtonCloseApp_Click">
+                    <materialDesign:PackIcon Kind="Close"/>
+                </Button>
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,10,0" Grid.Column="2">
+
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000">
+                    <materialDesign:PackIcon Kind="Bus"/>
+                </Button>
+
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,10,0" Grid.Column="2" VerticalAlignment="Center">
+                <StackPanel.Background>
+                    <ImageBrush/>
+                </StackPanel.Background>
+
+                <TextBlock HorizontalAlignment="Center" Text="AUTOBUSKA STANICA" FontFamily="Ink Free" Foreground="#000000" FontStretch="Condensed" FontWeight="Bold" FontStyle="Italic" FontSize="14"/>
+
+
+            </StackPanel>
+
+           
+
+
+        </Grid>
+        <!--CENTRALNI DEO-->
+        <Grid Name="pocetniEkran" Grid.Column="1" Grid.Row="1">
+            
+            <Grid.Background>
+                <ImageBrush ImageSource="Pictures/bus.jpg"/>
+            </Grid.Background>
+
+           <!--<StackPanel  HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="352" Orientation="Horizontal" Margin="10">
+                <Button Name="btnDodajKartu"   VerticalAlignment="Top" Width="117" Height="30"  Background="#ffcc66" BorderBrush="#FF0D0D0E" >
+                    
+                    <TextBlock  HorizontalAlignment="Center" Text="Dodaj kartu" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+
+                </Button>
+
+                <Button Name="btnIzmeniKartu"  VerticalAlignment="Top" Width="117" Height="30"  Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni kartu" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiKartu"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi kartu" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajKorisnika" VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" >
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj korisnika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniKorisnika"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" >
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni korisnika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+
+                <Button Name="btnObrisiKorisnika" VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi korisnika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajKupca" VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" >
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj kupca" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+
+                </Button>
+                
+                <Button Name="btnIzmeniKupca"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni korisnika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnObrisiKupca"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" >
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi kupca" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajMarku"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj marku" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniMarku"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni marku" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiMarku"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi marku" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajModel"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj model" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniModel"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni model" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiModel" VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi model" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajTip"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj tip" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniTip"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni tip" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiTip" VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi tip" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajPrevoznika"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj prevoznika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniPrevoznika"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni prevoznika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnObrisiPrevoznika" VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi prevoznika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajRelaciju"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj relaciju" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniRelaciju"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni relaciju" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiRelaciju"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi relaciju" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajVozaca"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj vozaca" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniVozaca"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni vozaca" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiVozaca"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi vozaca" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajVozilo"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniVozilo"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiVozilo"  VerticalAlignment="Top" Width="117" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+            </StackPanel>
+
+            <DataGrid Name="dataGridCentralni" HorizontalAlignment="Center" VerticalAlignment="Center" Height="auto"
+                  Width="auto"  IsReadOnly="True"  SelectionUnit="FullRow" 
+                  SelectionMode="single" />-->
+        </Grid>
+        <!--PODACI-->
+        <Grid Name="podaci" Grid.Column="1" Grid.Row="1">
+
+            
+
+            <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="420" Orientation="Horizontal" Margin="10">
+                <Button Name="btnDodajKartu"   VerticalAlignment="Top" Width="140" Height="30"  Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+
+                    <TextBlock  HorizontalAlignment="Center" Text="Dodaj kartu" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+
+                </Button>
+
+                <Button Name="btnIzmeniKartu"  VerticalAlignment="Top" Width="140" Height="30"  Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni kartu" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiKartu"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi kartu" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajKorisnika" VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj korisnika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniKorisnika"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni korisnika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+
+                <Button Name="btnObrisiKorisnika" VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi korisnika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajMarku"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj marku" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniMarku"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni marku" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiMarku"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi marku" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajModel"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj model" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniModel"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni model" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiModel" VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi model" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajTip"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj tip" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniTip"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni tip" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiTip" VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi tip" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajPrevoznika"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj prevoznika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniPrevoznika"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni prevoznika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnObrisiPrevoznika" VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi prevoznika" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajRelaciju"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj relaciju" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniRelaciju"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni relaciju" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiRelaciju"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi relaciju" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajVozaca"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj vozaca" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniVozaca"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni vozaca" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiVozaca"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi vozaca" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+
+                <Button Name="btnDodajVozilo"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Dodaj vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnIzmeniVozilo"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Izmeni vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+                <Button Name="btnObrisiVozilo"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                    <TextBlock HorizontalAlignment="Center" Text="Obrisi vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
+                </Button>
+            </StackPanel>
+
+            <DataGrid Name="dataGridCentralni" HorizontalAlignment="Center" VerticalAlignment="Center" Height="450"
+                  Width="750"  IsReadOnly="True"  SelectionUnit="FullRow" 
+                  SelectionMode="single" />
+        </Grid>
+
+
+
+
+
+
+    </Grid>
+</Window>
