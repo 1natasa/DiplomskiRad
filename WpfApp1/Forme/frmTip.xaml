@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfApp1.Forme.frmTip"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Forme"
+        mc:Ignorable="d"
+        Title="Tip vozila" Height="450" Width="800">
+    <Grid Background="#ffcc66">
+        <Grid Background="White" Height="300" Width="500">
+            <Label Content="Naziv" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="116,72,309,203" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75"/>
+            <TextBox Name="txtNaziv" HorizontalAlignment="Left" Height="23" Margin="234,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A"  />
+            <Button Name="btnSacuvaj" Content="Sacuvaj" HorizontalAlignment="Left" Margin="116,181,0,0" VerticalAlignment="Top" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnSacuvaj_Click"/>
+            <Button Name="btnOtkazi" Content="Otkazi" HorizontalAlignment="Left" Margin="299,181,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="1.28,0.328" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnOtkazi_Click"/>
+        </Grid>
+    </Grid>
+</Window>

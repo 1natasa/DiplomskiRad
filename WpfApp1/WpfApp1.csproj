@@ -61,6 +61,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Forme\frmKarta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmKorisnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmMarka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmPrevoznik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmRelacija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmVozac.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +100,30 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forme\frmKarta.xaml.cs">
+      <DependentUpon>frmKarta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmKorisnik.xaml.cs">
+      <DependentUpon>frmKorisnik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmMarka.xaml.cs">
+      <DependentUpon>frmMarka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmModel.xaml.cs">
+      <DependentUpon>frmModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmPrevoznik.xaml.cs">
+      <DependentUpon>frmPrevoznik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmRelacija.xaml.cs">
+      <DependentUpon>frmRelacija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmTip.xaml.cs">
+      <DependentUpon>frmTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmVozac.xaml.cs">
+      <DependentUpon>frmVozac.xaml</DependentUpon>
     </Compile>
     <Compile Include="Konekcija.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -105,5 +161,6 @@
   <ItemGroup>
     <Resource Include="Pictures\bus.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

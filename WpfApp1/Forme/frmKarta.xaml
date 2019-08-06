@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApp1.Forme.frmKarta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Forme"
+        mc:Ignorable="d"
+        Title="Karta" Height="450" Width="800">
+    <Grid Background="#ffcc66">
+        <Grid Background="White" Height="300" Width="500">
+            <Label Content="Broj karte" HorizontalAlignment="Left" Margin="87,50,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="105" RenderTransformOrigin="1.573,0.72"/>
+            <TextBox Name="txtBrKarte" HorizontalAlignment="Left" Height="23" Margin="223,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.596,0.326"/>
+            <Label Content="Vrsta karte" HorizontalAlignment="Left" Margin="87,80,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="105" RenderTransformOrigin="0.519,-0.367"/>
+            <TextBox Name="txtVrstaKarte" HorizontalAlignment="Left" Height="23" Margin="223,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.558,-0.935" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A"/>
+
+            <Label Content="Relacija" HorizontalAlignment="Left" Margin="87,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.712" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="105"/>
+            <ComboBox Name="cbxRelacija" HorizontalAlignment="Left" Margin="223,108,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="relacijaID" DisplayMemberPath="Relacija"  BorderBrush="#FF0D0D0E" RenderTransformOrigin="0.429,-2.536"/>
+            <Label Content="Korisnik" HorizontalAlignment="Left" Margin="87,152,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.712" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="105"/>
+            <ComboBox Name="cbxKorisnik" HorizontalAlignment="Left" Margin="223,141,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="korisnikID" DisplayMemberPath="Korisnik"  BorderBrush="#FF0D0D0E" RenderTransformOrigin="0.429,-2.536"/>
+            
+            <Button Name="btnSacuvaj" Content="Sacuvaj" HorizontalAlignment="Left" Margin="117,225,0,43" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnSacuvaj_Click" Height="Auto"/>
+            <Button Name="btnOtkazi" Content="Otkazi" HorizontalAlignment="Left" Margin="268,225,0,0" VerticalAlignment="Top" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnOtkazi_Click" RenderTransformOrigin="0.453,1.422"/>
+
+
+        </Grid>
+
+    </Grid>
+</Window>
