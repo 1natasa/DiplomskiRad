@@ -344,13 +344,13 @@
                     <TextBlock HorizontalAlignment="Center" Text="Obrisi vozaca" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
                 </Button>
 
-                <Button Name="btnDodajVozilo"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                <Button Name="btnDodajVozilo"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" Click="btnDodajVozilo_Click">
                     <TextBlock HorizontalAlignment="Center" Text="Dodaj vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
                 </Button>
-                <Button Name="btnIzmeniVozilo"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                <Button Name="btnIzmeniVozilo"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" Click="btnIzmeniVozilo_Click">
                     <TextBlock HorizontalAlignment="Center" Text="Izmeni vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
                 </Button>
-                <Button Name="btnObrisiVozilo"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12">
+                <Button Name="btnObrisiVozilo"  VerticalAlignment="Top" Width="140" Height="30" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" Click="btnObrisiVozilo_Click">
                     <TextBlock HorizontalAlignment="Center" Text="Obrisi vozilo" FontFamily="Microsoft JhengHei UI" Foreground="#000000" FontStretch="Condensed"/>
                 </Button>
             </StackPanel>

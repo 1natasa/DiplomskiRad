@@ -131,7 +131,7 @@ namespace WpfApp1
             btnObrisiVozilo.Visibility = Visibility.Collapsed;
             try
             {
-                string upit = "select kartaID,brKarte as 'broj karte', vrsta, r.pocetnaStanica + '-' + r.krajnjaStanica as relacija, " +
+                string upit = "select kartaID as 'redni broj',brKarte as 'broj karte', vrsta, r.pocetnaStanica + '-' + r.krajnjaStanica as relacija, " +
                     "ko.ime + ' ' + ko.prezime as korisnik" +
                     " from Karta k " +
                     "inner join Relacija r on k.relacijaID=r.relacijaID" +
@@ -1499,7 +1499,7 @@ namespace WpfApp1
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
-                string upit = "Delete from Karta where kartaID= " + red["kartaID"];
+                string upit = "Delete from Karta where kartaID= " + red["redni broj"];
                 MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite Kartu?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
@@ -1527,6 +1527,118 @@ namespace WpfApp1
                     konekcija.Close();
                 }
                 btnKarta_Click(sender, e);
+            }
+        }
+
+        private void btnDodajVozilo_Click(object sender, RoutedEventArgs e)
+        {
+            frmVozilo prozor = new frmVozilo();
+
+            prozor.ShowDialog();
+            string upit = "select voziloID, brSasije as 'broj sasije', kubikaza, konjskaSnaga as 'konjske snage',brSedista as 'broj sedista',nosivost,masa,boja, " +
+                   "t.naziv as tip, m.naziv as marka, mo.naziv as model, vo.ime + ' ' + vo.prezime as vozac," +
+                   " p.naziv as prevoznik " +
+                   "from Vozilo v " +
+                   "inner join TipVozila t on v.tipID=t.tipID " +
+                   "inner join MarkaVozila m on m.markaID=v.markaID " +
+                   "inner join ModelVozila mo on mo.modelID=v.modelID " +
+                   "inner join Vozac vo on v.vozacID=vo.vozacID " +
+                   "inner join Prevoznik p on p.prevoznikID=v.prevoznikID";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
+            DataTable dt = new DataTable("Vozilo");
+            dataAdapter.Fill(dt);
+            //sto se ovde poziva dataGridCentralni
+            dataGridCentralni.ItemsSource = dt.DefaultView;
+        }
+
+        private void btnIzmeniVozilo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                azuriraj = true;
+                frmVozilo prozor = new frmVozilo();
+                konekcija.Open();
+
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                pomocni = red;
+                string upit = "select * from Vozilo where voziloID = " + red["voziloID"];
+                SqlCommand komanda = new SqlCommand(upit, konekcija);
+                SqlDataReader citac = komanda.ExecuteReader();
+                while (citac.Read())
+                {
+                    //podaci iz baze
+                    prozor.txtBrSasije.Text = citac["brSasije"].ToString();
+                    prozor.txtKubikaza.Text = citac["kubikaza"].ToString();
+                    prozor.txtKonjskeSnage.Text = citac["konjskaSnaga"].ToString();
+                    prozor.txtBoja.Text = citac["boja"].ToString();
+
+
+                    prozor.txtBrSedista.Text = citac["brSedista"].ToString();
+                    prozor.txtNosivost.Text = citac["nosivost"].ToString();
+                    prozor.txtMasa.Text = citac["masa"].ToString();
+                    prozor.cbxTip.SelectedValue = citac["tipID"].ToString();
+                    prozor.cbxMarka.SelectedValue = citac["markaID"].ToString();
+                    prozor.cbxModel.SelectedValue = citac["modelID"].ToString();
+                    prozor.cbxVozac.SelectedValue = citac["vozacID"].ToString();
+                    prozor.cbxPrevoznik.SelectedValue = citac["prevoznikID"].ToString();
+                    //fali za strane kljuceve
+
+                    prozor.ShowDialog();
+                }
+
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+            }
+            finally
+            {
+
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                btnVozilo_Click(sender, e);
+                azuriraj = false;
+            }
+        }
+
+        private void btnObrisiVozilo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                konekcija.Open();
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+                string upit = "Delete from Vozilo where voziloID= " + red["voziloID"];
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite Vozilo?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (rezultat == MessageBoxResult.Yes)
+                {
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                }
+
+
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+
+
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguce obrisati red.", "Obavestenje");
+            }
+            finally
+            {
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                btnVozilo_Click(sender, e);
             }
         }
     }
