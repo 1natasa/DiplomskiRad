@@ -26,55 +26,73 @@ namespace WpfApp1
         public SqlConnection konekcija = Konekcija.KreirajKonekciju();
         public static bool azuriraj;
         public static object pomocni;
+        public static bool rbr=false;
 
+        
         public MainWindow()
         {
-            InitializeComponent();
-            pocetniEkran.Visibility = Visibility.Visible;
-            podaci.Visibility = Visibility.Collapsed;
-            dataGridCentralni.Visibility = Visibility.Collapsed;
-            btnDodajKartu.Visibility = Visibility.Collapsed;
-            btnIzmeniKartu.Visibility = Visibility.Collapsed;
-            btnObrisiKartu.Visibility = Visibility.Collapsed;
+            frmLogovanje logovanje = new frmLogovanje();
+            if (rbr == false)
+            {
+                InitializeComponent();
+               
+                logovanje.ShowDialog();
+            }
 
-            btnDodajKorisnika.Visibility = Visibility.Collapsed;
-            btnIzmeniKorisnika.Visibility = Visibility.Collapsed;
-            btnObrisiKorisnika.Visibility = Visibility.Collapsed;
+            else 
+            {
+                //logovanje.Close();
+                InitializeComponent();
+                
+                pocetniEkran.Visibility = Visibility.Visible;
+                podaci.Visibility = Visibility.Collapsed;
+                dataGridCentralni.Visibility = Visibility.Collapsed;
+                btnDodajKartu.Visibility = Visibility.Collapsed;
+                btnIzmeniKartu.Visibility = Visibility.Collapsed;
+                btnObrisiKartu.Visibility = Visibility.Collapsed;
+
+                btnDodajKorisnika.Visibility = Visibility.Collapsed;
+                btnIzmeniKorisnika.Visibility = Visibility.Collapsed;
+                btnObrisiKorisnika.Visibility = Visibility.Collapsed;
 
 
-            btnDodajMarku.Visibility = Visibility.Collapsed;
-            btnObrisiMarku.Visibility = Visibility.Collapsed;
-            btnIzmeniMarku.Visibility = Visibility.Collapsed;
+                btnDodajMarku.Visibility = Visibility.Collapsed;
+                btnObrisiMarku.Visibility = Visibility.Collapsed;
+                btnIzmeniMarku.Visibility = Visibility.Collapsed;
 
-            btnIzmeniModel.Visibility = Visibility.Collapsed;
-            btnObrisiModel.Visibility = Visibility.Collapsed;
-            btnDodajModel.Visibility = Visibility.Collapsed;
+                btnIzmeniModel.Visibility = Visibility.Collapsed;
+                btnObrisiModel.Visibility = Visibility.Collapsed;
+                btnDodajModel.Visibility = Visibility.Collapsed;
 
 
-            btnDodajTip.Visibility = Visibility.Collapsed;
-            btnIzmeniTip.Visibility = Visibility.Collapsed;
-            btnObrisiTip.Visibility = Visibility.Collapsed;
+                btnDodajTip.Visibility = Visibility.Collapsed;
+                btnIzmeniTip.Visibility = Visibility.Collapsed;
+                btnObrisiTip.Visibility = Visibility.Collapsed;
 
-            btnObrisiPrevoznika.Visibility = Visibility.Collapsed;
-            btnDodajPrevoznika.Visibility = Visibility.Collapsed;
-            btnIzmeniPrevoznika.Visibility = Visibility.Collapsed;
+                btnObrisiPrevoznika.Visibility = Visibility.Collapsed;
+                btnDodajPrevoznika.Visibility = Visibility.Collapsed;
+                btnIzmeniPrevoznika.Visibility = Visibility.Collapsed;
 
-            btnIzmeniRelaciju.Visibility = Visibility.Collapsed;
-            btnObrisiRelaciju.Visibility = Visibility.Collapsed;
-            btnDodajRelaciju.Visibility = Visibility.Collapsed;
+                btnIzmeniRelaciju.Visibility = Visibility.Collapsed;
+                btnObrisiRelaciju.Visibility = Visibility.Collapsed;
+                btnDodajRelaciju.Visibility = Visibility.Collapsed;
 
-            btnDodajVozaca.Visibility = Visibility.Collapsed;
-            btnIzmeniVozaca.Visibility = Visibility.Collapsed;
-            btnObrisiVozaca.Visibility = Visibility.Collapsed;
+                btnDodajVozaca.Visibility = Visibility.Collapsed;
+                btnIzmeniVozaca.Visibility = Visibility.Collapsed;
+                btnObrisiVozaca.Visibility = Visibility.Collapsed;
 
-            btnDodajVozilo.Visibility = Visibility.Collapsed;
-            btnIzmeniVozilo.Visibility = Visibility.Collapsed;
-            btnObrisiVozilo.Visibility = Visibility.Collapsed;
-           // PocetniDataGrid(dataGridCentralni);
-           //
+                btnDodajVozilo.Visibility = Visibility.Collapsed;
+                btnIzmeniVozilo.Visibility = Visibility.Collapsed;
+                btnObrisiVozilo.Visibility = Visibility.Collapsed;
+            }
+            
+
+            // PocetniDataGrid(dataGridCentralni);
+            //
 
         }
 
+        
 
         private void ButtonCloseApp_Click(object sender, RoutedEventArgs e)
         {

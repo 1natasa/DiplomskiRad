@@ -69,6 +69,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Forme\frmLogovanje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forme\frmMarka.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +82,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forme\frmPrevoznik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmRegistracija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,6 +119,9 @@
     <Compile Include="Forme\frmKorisnik.xaml.cs">
       <DependentUpon>frmKorisnik.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forme\frmLogovanje.xaml.cs">
+      <DependentUpon>frmLogovanje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forme\frmMarka.xaml.cs">
       <DependentUpon>frmMarka.xaml</DependentUpon>
     </Compile>
@@ -119,6 +130,9 @@
     </Compile>
     <Compile Include="Forme\frmPrevoznik.xaml.cs">
       <DependentUpon>frmPrevoznik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmRegistracija.xaml.cs">
+      <DependentUpon>frmRegistracija.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forme\frmRelacija.xaml.cs">
       <DependentUpon>frmRelacija.xaml</DependentUpon>
@@ -168,6 +182,11 @@
   <ItemGroup>
     <Resource Include="Pictures\bus.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Pictures\busPointer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\b.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
