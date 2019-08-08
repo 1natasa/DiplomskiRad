@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.Forme"
         mc:Ignorable="d"
-        Title="Registracija" Height="500" Width="350">
+        Title="Registracija" Height="500" Width="350" WindowStartupLocation="CenterScreen">
     <Grid Name="registracija" Width="263" HorizontalAlignment="Left" Background="#ffcc66" Margin="0,0,0,-2">
 
         <Grid Name="crni" Width="87" HorizontalAlignment="Right" Background="Black" Margin="0,0,-81,0">

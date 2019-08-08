@@ -223,7 +223,12 @@ namespace WpfApp1
 
             try
             {
-                string upit = "select korisnikID, ime, prezime, jmbg, kontakt, adresa, grad from Korisnik";
+                //dodatak
+                frmLogovanje logovanje = new frmLogovanje();
+                string upit = "select korisnikID, ime, prezime, jmbg, kontakt, adresa, grad from Korisnik where jmbg ='"+frmLogovanje.jmbgKorisnik +"'";
+                Console.WriteLine("Ovo stigne");
+                Console.WriteLine(logovanje.txtJmbgKorisnik.Text);
+                Console.WriteLine(frmLogovanje.jmbgKorisnik);
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
                 DataTable dt = new DataTable("Korisnik");
                 dataAdapter.Fill(dt);

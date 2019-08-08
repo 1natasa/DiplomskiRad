@@ -7,10 +7,19 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         
-        Title="Autobuska stanica" Height="500" Width="350">
+        Title="Autobuska stanica" Height="500" Width="350" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid Name="logovanje" Width="263" HorizontalAlignment="Left" Background="#ffcc66" Margin="0,0,0,-2">
-        <Image Source="../Pictures/busPointer.png" Width="100" Height="100" VerticalAlignment="Top" RenderTransformOrigin="0.975,0.473" Margin="119,10,44,0"/>
-        <Grid Name="crni" Width="87" HorizontalAlignment="Right" Background="Black" Margin="0,0,-81,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="210*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Image Source="../Pictures/busPointer.png" Width="100" Height="100" VerticalAlignment="Top" RenderTransformOrigin="0.975,0.473" Margin="60,25,50,0" Grid.Column="3"/>
+        <Grid Name="crni" Width="87" HorizontalAlignment="Right" Background="Black" Margin="0,0,-81,0" Grid.Column="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="203*"/>
                 <RowDefinition Height="269*"/>
@@ -23,18 +32,24 @@
             </Rectangle>
             <Grid Width="280" RenderTransformOrigin="-0.361,0.571" Margin="-226,128,33,83" Grid.RowSpan="2">
                 <Label Content="Ime" HorizontalAlignment="Left" Margin="23,40,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75" RenderTransformOrigin="1.573,0.72"/>
-                <TextBox Name="txtImeKorisnik" HorizontalAlignment="Left" Height="23" Margin="103,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.596,0.326"/>
+                <TextBox Name="txtImeKorisnik" HorizontalAlignment="Left" Height="23" Margin="103,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.596,0.326" AutomationProperties.IsRequiredForForm="True"/>
                 <Label Content="Prezime" HorizontalAlignment="Left" Margin="23,84,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75" RenderTransformOrigin="0.519,-0.367"/>
-                <TextBox Name="txtPrezimeKorisnik" HorizontalAlignment="Left" Height="23" Margin="103,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.558,-0.935" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A"/>
+                <TextBox Name="txtPrezimeKorisnik" HorizontalAlignment="Left" Height="23" Margin="103,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.558,-0.935" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" AutomationProperties.IsRequiredForForm="True"/>
                 <Label Content="JMBG" HorizontalAlignment="Left" Margin="23,134,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75" RenderTransformOrigin="0.087,0.12"/>
-                <TextBox Name="txtJmbgKorisnik" HorizontalAlignment="Left" Height="23" Margin="103,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.558,0.261"/>
+                <TextBox Name="txtJmbgKorisnik" HorizontalAlignment="Left" Height="23" Margin="103,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.558,0.261" AutomationProperties.IsRequiredForForm="True"/>
 
 
             </Grid>
+            <Grid Background="#FFECEAE2" Height="20" Margin="-226,0,0,192">
+
+                <Button x:Name="ButtonCloseApp" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Click="ButtonCloseApp_Click_1" Margin="278,-5,10,0">
+                    <materialDesign:PackIcon Kind="Close"/>
+                </Button>
+            </Grid>
 
         </Grid>
-        <Button Name="btnPrijaviSe"  Content="Prijavi se" HorizontalAlignment="Left" Margin="119,331,0,0" VerticalAlignment="Top" Width="108" Background="Black" BorderBrush="#FFFDCA65" FontWeight="Bold" Foreground="#FFFDCA65" RenderTransformOrigin="0.681,0.578" Click="btnPrijaviSe_Click"/>
-        <Button Name="btnRegistrujSe" Content="Nemate nalog? Registrujte se" HorizontalAlignment="Left" Margin="71,368,-32,0" VerticalAlignment="Top" Width="224" Background="Black" BorderBrush="#FFFDCA65" FontWeight="Bold" Foreground="#FFFDCA65" Click="btnRegistrujSe_Click"/>
+        <Button Name="btnPrijaviSe"  Content="Prijavi se" HorizontalAlignment="Left" Margin="66,331,0,0" VerticalAlignment="Top" Width="108" Background="Black" BorderBrush="#FFFDCA65" FontWeight="Bold" Foreground="#FFFDCA65" RenderTransformOrigin="0.681,0.578" Click="btnPrijaviSe_Click" Grid.Column="3"/>
+        <Button Name="btnRegistrujSe" Content="Nemate nalog? Registrujte se" HorizontalAlignment="Left" Margin="18,368,-32,0" VerticalAlignment="Top" Width="224" Background="Black" BorderBrush="#FFFDCA65" FontWeight="Bold" Foreground="#FFFDCA65" Click="btnRegistrujSe_Click" Grid.Column="3"/>
 
     </Grid>
 
