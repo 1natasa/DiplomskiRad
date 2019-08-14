@@ -14,7 +14,7 @@
             <TextBox Name="txtPrezimeVozac" HorizontalAlignment="Left" Height="23" Margin="223,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.558,-0.935" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A"/>
             <Label Content="JMBG" HorizontalAlignment="Left" Margin="143,98,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75"/>
             <TextBox Name="txtJmbgVozac" HorizontalAlignment="Left" Height="23" Margin="223,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.558,0.261"/>
-            <Label Content="Vozacka" HorizontalAlignment="Left" Margin="143,123,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.474,0.558" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75"/>
+            <Label Content="Vozačka" HorizontalAlignment="Left" Margin="143,123,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.474,0.558" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75"/>
             <TextBox Name="txtVozackaDoz" HorizontalAlignment="Left" Height="23" Margin="223,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A"/>
             <Label Content="Kontakt" HorizontalAlignment="Left" Margin="143,153,0,0" VerticalAlignment="Top"  FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75" RenderTransformOrigin="0.513,-0.32"/>
             <TextBox Name="txtKontaktVozac" HorizontalAlignment="Left" Height="23" Margin="223,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.696,0.5"/>
@@ -23,8 +23,8 @@
             <Label Content="Grad" HorizontalAlignment="Left" Margin="143,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.712" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75"/>
             <TextBox Name="txtGradVozac" HorizontalAlignment="Left" Height="23" Margin="223,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="0.513,-0.043"/>
             
-            <Button Name="btnSacuvaj" Content="Sacuvaj" HorizontalAlignment="Left" Margin="148,258,0,0" VerticalAlignment="Top" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnSacuvaj_Click"/>
-            <Button Name="btnOtkazi" Content="Otkazi" HorizontalAlignment="Left" Margin="287,258,0,0" VerticalAlignment="Top" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnOtkazi_Click"/>
+            <Button Name="btnSacuvaj" Content="Sačuvaj" HorizontalAlignment="Left" Margin="148,258,0,0" VerticalAlignment="Top" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnSacuvaj_Click"/>
+            <Button Name="btnOtkazi" Content="Otkaži" HorizontalAlignment="Left" Margin="287,258,0,0" VerticalAlignment="Top" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnOtkazi_Click"/>
             
 
         </Grid>

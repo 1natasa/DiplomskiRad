@@ -18,8 +18,8 @@
             <Label Content="Korisnik" HorizontalAlignment="Left" Margin="87,152,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.712" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="105"/>
             <ComboBox Name="cbxKorisnik" HorizontalAlignment="Left" Margin="223,141,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="korisnikID" DisplayMemberPath="Korisnik"  BorderBrush="#FF0D0D0E" RenderTransformOrigin="0.429,-2.536"/>
             
-            <Button Name="btnSacuvaj" Content="Sacuvaj" HorizontalAlignment="Left" Margin="117,225,0,43" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnSacuvaj_Click" Height="Auto"/>
-            <Button Name="btnOtkazi" Content="Otkazi" HorizontalAlignment="Left" Margin="268,225,0,0" VerticalAlignment="Top" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnOtkazi_Click" RenderTransformOrigin="0.453,1.422"/>
+            <Button Name="btnSacuvaj" Content="Sačuvaj" HorizontalAlignment="Left" Margin="117,225,0,43" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnSacuvaj_Click" Height="Auto"/>
+            <Button Name="btnOtkazi" Content="Otkaži" HorizontalAlignment="Left" Margin="268,225,0,0" VerticalAlignment="Top" Width="75" Background="#ffcc66" BorderBrush="#FF0D0D0E" FontSize="12" FontFamily="Microsoft JhengHei UI" Foreground="#000000" Click="btnOtkazi_Click" RenderTransformOrigin="0.453,1.422"/>
 
 
         </Grid>

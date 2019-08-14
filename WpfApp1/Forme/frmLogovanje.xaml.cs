@@ -54,11 +54,23 @@ namespace WpfApp1.Forme
                 }
                 else
                 {
-                    MessageBox.Show("Korisnik ne postoji! Registrujte se!");
+                    //MessageBox.Show("Korisnik ne postoji! Registrujte se!");
+                    if (txtImeKorisnik.Text == "")
+                    {
+                        MessageBox.Show("Niste uneli ime!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if (txtPrezimeKorisnik.Text == "")
+                        MessageBox.Show("Niste uneli prezime!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    else if (txtJmbgKorisnik.Text == "")
+                        MessageBox.Show("Niste uneli jmbg", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    else
+                         
+                        MessageBox.Show("Korisnik ne postoji!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch {
-                MessageBox.Show("Unos odredjenih podataka nije validan", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                MessageBox.Show("Korisnik ne postoji!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {

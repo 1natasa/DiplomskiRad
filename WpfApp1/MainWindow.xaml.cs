@@ -88,7 +88,7 @@ namespace WpfApp1
             
 
             // PocetniDataGrid(dataGridCentralni);
-            //
+           
 
         }
 
@@ -149,8 +149,8 @@ namespace WpfApp1
             btnObrisiVozilo.Visibility = Visibility.Collapsed;
             try
             {
-                string upit = "select kartaID as 'redni broj',brKarte as 'broj karte', vrsta, r.pocetnaStanica + '-' + r.krajnjaStanica as relacija, " +
-                    "ko.ime + ' ' + ko.prezime as korisnik" +
+                string upit = "select kartaID as 'Redni broj',brKarte as 'Broj karte', vrsta as 'Vrsta', r.pocetnaStanica + '-' + r.krajnjaStanica as Relacija, " +
+                    "ko.ime + ' ' + ko.prezime as Korisnik" +
                     " from Karta k " +
                     "inner join Relacija r on k.relacijaID=r.relacijaID" +
                     " inner join Korisnik ko  on k.korisnikID=ko.korisnikID";
@@ -158,9 +158,6 @@ namespace WpfApp1
                 DataTable dt = new DataTable("Karta");
                 dataAdapter.Fill(dt);
                 dataGridCentralni.ItemsSource = dt.DefaultView;
-
-
-
             }
             catch (Exception ex)
             {
@@ -186,9 +183,9 @@ namespace WpfApp1
             btnIzmeniKartu.Visibility = Visibility.Collapsed;
             btnObrisiKartu.Visibility = Visibility.Collapsed;
 
-            btnDodajKorisnika.Visibility = Visibility.Visible;
+            btnDodajKorisnika.Visibility = Visibility.Collapsed;
             btnIzmeniKorisnika.Visibility = Visibility.Visible;
-            btnObrisiKorisnika.Visibility = Visibility.Visible;
+            btnObrisiKorisnika.Visibility = Visibility.Collapsed;
 
             btnDodajMarku.Visibility = Visibility.Collapsed;
             btnObrisiMarku.Visibility = Visibility.Collapsed;
@@ -223,9 +220,9 @@ namespace WpfApp1
 
             try
             {
-                //dodatak
+                
                 frmLogovanje logovanje = new frmLogovanje();
-                string upit = "select korisnikID, ime, prezime, jmbg, kontakt, adresa, grad from Korisnik where jmbg ='"+frmLogovanje.jmbgKorisnik +"'";
+                string upit = "select korisnikID as 'Redni broj', ime as 'Ime', prezime as 'Prezime', jmbg as 'Jmbg', kontakt as 'Kontakt', adresa as 'Adresa', grad as 'Grad' from Korisnik where jmbg ='"+frmLogovanje.jmbgKorisnik +"'";
                 Console.WriteLine("Ovo stigne");
                 Console.WriteLine(logovanje.txtJmbgKorisnik.Text);
                 Console.WriteLine(frmLogovanje.jmbgKorisnik);
@@ -300,14 +297,11 @@ namespace WpfApp1
 
             try
             {
-                string upit = "select markaID, naziv from MarkaVozila";
+                string upit = "select markaID as 'Redni broj', naziv as 'Naziv' from MarkaVozila";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
                 DataTable dt = new DataTable("MarkaVozila");
                 dataAdapter.Fill(dt);
-                //sto se ovde poziva dataGridCentralni
                 dataGridCentralni.ItemsSource = dt.DefaultView;
-
-
 
             }
             catch (Exception ex)
@@ -371,13 +365,11 @@ namespace WpfApp1
 
             try
             {
-                string upit = "select modelID, naziv from ModelVozila";
+                string upit = "select modelID as 'Redni broj', naziv as 'Naziv' from ModelVozila";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
                 DataTable dt = new DataTable("ModelVozila");
                 dataAdapter.Fill(dt);
-                //sto se ovde poziva dataGridCentralni
                 dataGridCentralni.ItemsSource = dt.DefaultView;
-
 
 
             }
@@ -444,14 +436,11 @@ namespace WpfApp1
 
             try
             {
-                string upit = "select tipID, naziv from TipVozila";
+                string upit = "select tipID as 'Redni broj', naziv as 'Naziv' from TipVozila";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
                 DataTable dt = new DataTable("TipVozila");
                 dataAdapter.Fill(dt);
-                //sto se ovde poziva dataGridCentralni
                 dataGridCentralni.ItemsSource = dt.DefaultView;
-
-
 
             }
             catch (Exception ex)
@@ -515,14 +504,12 @@ namespace WpfApp1
 
             try
             {
-                string upit = "select prevoznikID, grad,naziv,kontakt from Prevoznik";
+                string upit = "select prevoznikID as 'Redni broj', grad as 'Grad',naziv as 'Naziv',kontakt as 'Kontakt' from Prevoznik";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
                 DataTable dt = new DataTable("Prevoznik");
                 dataAdapter.Fill(dt);
-                //sto se ovde poziva dataGridCentralni
+
                 dataGridCentralni.ItemsSource = dt.DefaultView;
-
-
 
             }
             catch (Exception ex)
@@ -588,16 +575,14 @@ namespace WpfApp1
 
             try
             {
-                string upit = "select relacijaID, pocetnaStanica as 'pocetna stanica',KrajnjaStanica as 'krajnja stanica',km,vremePolaska as 'vreme polaska', vremeDolaska as 'vreme dolaska'," +
-                    "peron,cena,p.naziv" +
+                string upit = "select relacijaID as 'Redni broj', pocetnaStanica as 'Početna stanica',krajnjaStanica as 'Krajnja stanica',km as 'Km',vremePolaska as 'Vreme polaska', vremeDolaska as 'Vreme dolaska'," +
+                    "peron as 'Peron',cena as 'Cena',p.naziv as 'Naziv prevoznika'" +
                     " from Relacija r inner join Prevoznik p on r.prevoznikID = p.prevoznikID";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
                 DataTable dt = new DataTable("Relacija");
                 dataAdapter.Fill(dt);
-                //sto se ovde poziva dataGridCentralni
+
                 dataGridCentralni.ItemsSource = dt.DefaultView;
-
-
 
             }
             catch (Exception ex)
@@ -661,14 +646,11 @@ namespace WpfApp1
 
             try
             {
-                string upit = "select vozacID,ime,prezime,jmbg,kontakt,dozvola, adresa,grad from Vozac";
+                string upit = "select vozacID as 'Redni broj',ime as 'Ime',prezime as 'Prezime',jmbg as 'Jmbg',kontakt as 'Kontakt',dozvola as 'Dozvola', adresa as 'Adresa',grad as 'Grad' from Vozac";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
                 DataTable dt = new DataTable("Vozac");
                 dataAdapter.Fill(dt);
-                //sto se ovde poziva dataGridCentralni
                 dataGridCentralni.ItemsSource = dt.DefaultView;
-
-
 
             }
             catch (Exception ex)
@@ -733,9 +715,9 @@ namespace WpfApp1
 
             try
             {
-                string upit = "select voziloID, brSasije as 'broj sasije', kubikaza, konjskaSnaga as 'konjske snage',brSedista as 'broj sedista',nosivost,masa,boja, " +
-                    "t.naziv as tip, m.naziv as marka, mo.naziv as model, vo.ime + ' ' + vo.prezime as vozac," +
-                    " p.naziv as prevoznik " +
+                string upit = "select voziloID as 'Redni broj', brSasije as 'Broj šasije', kubikaza as 'Kubikaža', konjskaSnaga as 'Konjske snage',brSedista as 'Broj sedišta',nosivost as 'Nosivost',masa as 'Masa',boja as 'Boja', " +
+                    "t.naziv as 'Tip', m.naziv as 'Marka', mo.naziv as 'Model', vo.ime + ' ' + vo.prezime as 'Vozač'," +
+                    " p.naziv as 'Prevoznik' " +
                     "from Vozilo v " +
                     "inner join TipVozila t on v.tipID=t.tipID " +
                     "inner join MarkaVozila m on m.markaID=v.markaID " +
@@ -745,11 +727,8 @@ namespace WpfApp1
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
                 DataTable dt = new DataTable("Vozilo");
                 dataAdapter.Fill(dt);
-                //sto se ovde poziva dataGridCentralni
+
                 dataGridCentralni.ItemsSource = dt.DefaultView;
-
-
-
             }
             catch (Exception ex)
             {
@@ -773,11 +752,10 @@ namespace WpfApp1
         {
             frmTip prozor = new frmTip();
             prozor.ShowDialog();
-            string upit = "select tipID, naziv from TipVozila";
+            string upit = "select tipID as 'Redni broj', naziv as 'Naziv' from TipVozila";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
             DataTable dt = new DataTable("TipVozila");
             dataAdapter.Fill(dt);
-            //sto se ovde poziva dataGridCentralni
             dataGridCentralni.ItemsSource = dt.DefaultView;
         }
 
@@ -792,26 +770,20 @@ namespace WpfApp1
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
 
                 pomocni = red;
-                string upit = "select * from TipVozila where tipID = " + red["tipID"];
+                string upit = "select * from TipVozila where tipID = " + red["Redni broj"];
                 SqlCommand komanda = new SqlCommand(upit, konekcija);
                 SqlDataReader citac = komanda.ExecuteReader();
                 while (citac.Read())
                 {
-                    //podaci iz baze
+                   
                     prozor.txtNaziv.Text = citac["naziv"].ToString();
-
-
-
-                    //fali za strane kljuceve
-
                     prozor.ShowDialog();
                 }
 
-                //dodati jos ostali deo koda!!!
             }
             catch (Exception)
             {
-                MessageBox.Show("Niste selektovali red!", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
             }
             finally
@@ -835,8 +807,8 @@ namespace WpfApp1
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
-                string upit = "Delete from TipVozila where tipID= " + red["tipID"];
-                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite selektovan podatak?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                string upit = "Delete from TipVozila where tipID= " + red["Redni broj"];
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da želite da obrišete tip?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
                 {
@@ -848,13 +820,13 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red!", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguce obrisati red.", "Obavestenje");
+                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguće obrisati red.", "Obaveštenje");
             }
             finally
             {
@@ -870,13 +842,12 @@ namespace WpfApp1
         {
             frmMarka prozor = new frmMarka();
             prozor.ShowDialog();
-            string upit = "select markaID, naziv from MarkaVozila";
+            string upit = "select markaID as 'Redni broj', naziv as 'Naziv' from MarkaVozila";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
             DataTable dt = new DataTable("MarkaVozila");
             dataAdapter.Fill(dt);
-            //sto se ovde poziva dataGridCentralni
             dataGridCentralni.ItemsSource = dt.DefaultView;
-            //PocetniDataGrid(dataGridCentralni);
+            
         }
 
         private void btnIzmeniMarku_Click(object sender, RoutedEventArgs e)
@@ -890,26 +861,21 @@ namespace WpfApp1
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
 
                 pomocni = red;
-                string upit = "select * from MarkaVozila where markaID = " + red["markaID"];
+                string upit = "select * from MarkaVozila where markaID = " + red["Redni broj"];
                 SqlCommand komanda = new SqlCommand(upit, konekcija);
                 SqlDataReader citac = komanda.ExecuteReader();
                 while (citac.Read())
                 {
-                    //podaci iz baze
+
                     prozor.txtNaziv.Text = citac["naziv"].ToString();
-
-
-
-                    //fali za strane kljuceve
 
                     prozor.ShowDialog();
                 }
 
-                //dodati jos ostali deo koda!!!
             }
             catch (Exception)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
             }
             finally
@@ -933,8 +899,8 @@ namespace WpfApp1
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
-                string upit = "Delete from MarkaVozila where markaID= " + red["markaID"];
-                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite Marku?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                string upit = "Delete from MarkaVozila where markaID= " + red["Redni broj"];
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da želite da obrišete marku?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
                 {
@@ -946,13 +912,13 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguce obrisati red.", "Obavestenje");
+                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguće obrisati red.", "Obaveštenje");
             }
             finally
             {
@@ -968,11 +934,10 @@ namespace WpfApp1
         {
             frmModel prozor = new frmModel();
             prozor.ShowDialog();
-            string upit = "select modelID, naziv from ModelVozila";
+            string upit = "select modelID as 'Redni broj', naziv as 'Naziv' from ModelVozila";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
             DataTable dt = new DataTable("ModelVozila");
             dataAdapter.Fill(dt);
-            //sto se ovde poziva dataGridCentralni
             dataGridCentralni.ItemsSource = dt.DefaultView;
         }
 
@@ -987,26 +952,21 @@ namespace WpfApp1
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
 
                 pomocni = red;
-                string upit = "select * from ModelVozila where modelID = " + red["modelID"];
+                string upit = "select * from ModelVozila where modelID = " + red["Redni broj"];
                 SqlCommand komanda = new SqlCommand(upit, konekcija);
                 SqlDataReader citac = komanda.ExecuteReader();
                 while (citac.Read())
                 {
-                    //podaci iz baze
+
                     prozor.txtNaziv.Text = citac["naziv"].ToString();
-
-
-
-                    //fali za strane kljuceve
 
                     prozor.ShowDialog();
                 }
 
-                //dodati jos ostali deo koda!!!
             }
             catch (Exception)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
             }
             finally
@@ -1030,8 +990,8 @@ namespace WpfApp1
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
-                string upit = "Delete from ModelVozila where modelID= " + red["modelID"];
-                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite Model?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                string upit = "Delete from ModelVozila where modelID= " + red["Redni broj"];
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da želite da obrišete model?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
                 {
@@ -1043,13 +1003,13 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguce obrisati red.", "Obavestenje");
+                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguće obrisati red.", "Obaveštenje");
             }
             finally
             {
@@ -1063,13 +1023,13 @@ namespace WpfApp1
 
         private void btnDodajKorisnika_Click(object sender, RoutedEventArgs e)
         {
-            frmKorisnik prozor = new frmKorisnik();
+            /*frmKorisnik prozor = new frmKorisnik();
             prozor.ShowDialog();
             string upit = "select korisnikID, ime, prezime, jmbg, kontakt, adresa, grad from Korisnik";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
             DataTable dt = new DataTable("Korisnik");
             dataAdapter.Fill(dt);
-            dataGridCentralni.ItemsSource = dt.DefaultView;
+            dataGridCentralni.ItemsSource = dt.DefaultView;*/
         }
 
         private void btnIzmeniKorisnika_Click(object sender, RoutedEventArgs e)
@@ -1083,28 +1043,25 @@ namespace WpfApp1
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
 
                 pomocni = red;
-                string upit = "select * from Korisnik where korisnikID = " + red["korisnikID"];
+                string upit = "select * from Korisnik where korisnikID = " + red["Redni broj"];
                 SqlCommand komanda = new SqlCommand(upit, konekcija);
                 SqlDataReader citac = komanda.ExecuteReader();
                 while (citac.Read())
                 {
-                    //podaci iz baze
+                   
                     prozor.txtImeKorisnik.Text = citac["ime"].ToString();
                     prozor.txtPrezimeKorisnik.Text = citac["prezime"].ToString();
                     prozor.txtJmbgKorisnik.Text = citac["jmbg"].ToString();
                     prozor.txtKontaktKorisnik.Text = citac["kontakt"].ToString();
                     prozor.txtAdresaKorisnik.Text = citac["adresa"].ToString();
                     prozor.txtGradKorisnik.Text = citac["grad"].ToString();
-                    //fali za strane kljuceve
 
                     prozor.ShowDialog();
                 }
-
-                //dodati jos ostali deo koda!!!
             }
             catch (Exception)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
             }
             finally
@@ -1123,7 +1080,7 @@ namespace WpfApp1
 
         private void btnObrisiKorisnika_Click(object sender, RoutedEventArgs e)
         {
-            try
+           /* try
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
@@ -1155,7 +1112,7 @@ namespace WpfApp1
                     konekcija.Close();
                 }
                 btnKorisnik_Click(sender, e);
-            }
+            }*/
         }
 
         private void btnDodajVozaca_Click(object sender, RoutedEventArgs e)
@@ -1163,11 +1120,10 @@ namespace WpfApp1
             frmVozac prozor = new frmVozac();
 
             prozor.ShowDialog();
-            string upit = "select vozacID,ime,prezime,jmbg,kontakt,dozvola, adresa,grad from Vozac";
+            string upit = "select vozacID as 'Redni broj',ime as 'Ime',prezime as 'Prezime',jmbg as 'Jmbg',kontakt as 'Kontakt',dozvola as 'Dozvola', adresa as 'Adresa',grad as 'Grad' from Vozac";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
             DataTable dt = new DataTable("Vozac");
-            dataAdapter.Fill(dt);
-            //sto se ovde poziva dataGridCentralni
+            dataAdapter.Fill(dt); 
             dataGridCentralni.ItemsSource = dt.DefaultView;
         }
 
@@ -1183,30 +1139,26 @@ namespace WpfApp1
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
 
                 pomocni = red;
-                string upit = "select * from Vozac where vozacID = " + red["vozacID"];
+                string upit = "select * from Vozac where vozacID = " + red["Redni broj"];
                 SqlCommand komanda = new SqlCommand(upit, konekcija);
                 SqlDataReader citac = komanda.ExecuteReader();
                 while (citac.Read())
                 {
-                    //podaci iz baze
+                  
                     prozor.txtImeVozac.Text = citac["ime"].ToString();
                     prozor.txtPrezimeVozac.Text = citac["prezime"].ToString();
                     prozor.txtJmbgVozac.Text = citac["jmbg"].ToString();
                     prozor.txtKontaktVozac.Text = citac["kontakt"].ToString();
-
-
                     prozor.txtVozackaDoz.Text = citac["dozvola"].ToString();
                     prozor.txtAdresaVozac.Text = citac["adresa"].ToString();
                     prozor.txtGradVozac.Text = citac["grad"].ToString();
-                    //fali za strane kljuceve
-
                     prozor.ShowDialog();
                 }
 
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
             }
             finally
             {
@@ -1226,8 +1178,8 @@ namespace WpfApp1
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
-                string upit = "Delete from Vozac where vozacID= " + red["vozacID"];
-                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite Vozaca?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                string upit = "Delete from Vozac where vozacID= " + red["Redni broj"];
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da želite da obrišete vozača?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
                 {
@@ -1239,13 +1191,13 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguce obrisati red.", "Obavestenje");
+                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguće obrisati red!", "Obaveštenje");
             }
             finally
             {
@@ -1261,11 +1213,10 @@ namespace WpfApp1
         {
             frmPrevoznik prozor = new frmPrevoznik();
             prozor.ShowDialog();
-            string upit = "select prevoznikID, grad,naziv,kontakt from Prevoznik";
+            string upit = "select prevoznikID as 'Redni broj', grad as 'Grad',naziv as 'Naziv',kontakt as 'Kontakt' from Prevoznik";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
             DataTable dt = new DataTable("Prevoznik");
             dataAdapter.Fill(dt);
-            //sto se ovde poziva dataGridCentralni
             dataGridCentralni.ItemsSource = dt.DefaultView;
         }
 
@@ -1280,28 +1231,23 @@ namespace WpfApp1
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
 
                 pomocni = red;
-                string upit = "select * from Prevoznik where prevoznikID = " + red["prevoznikID"];
+                string upit = "select * from Prevoznik where prevoznikID = " + red["Redni broj"];
                 SqlCommand komanda = new SqlCommand(upit, konekcija);
                 SqlDataReader citac = komanda.ExecuteReader();
                 while (citac.Read())
                 {
-                    //podaci iz baze
+                    
                     prozor.txtGrad.Text = citac["grad"].ToString();
                     prozor.txtNaziv.Text = citac["naziv"].ToString();
                     prozor.txtKontakt.Text = citac["kontakt"].ToString();
 
-
-
-                    //fali za strane kljuceve
-
                     prozor.ShowDialog();
                 }
 
-                //dodati jos ostali deo koda!!!
             }
             catch (Exception)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
             }
             finally
@@ -1325,8 +1271,8 @@ namespace WpfApp1
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
-                string upit = "Delete from Prevoznik where prevoznikID= " + red["prevoznikID"];
-                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite Prevoznika?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                string upit = "Delete from Prevoznik where prevoznikID= " + red["Redni broj"];
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da želite da obrišete prevoznika?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
                 {
@@ -1338,13 +1284,13 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguce obrisati red.", "Obavestenje");
+                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguće obrisati red.", "Obaveštenje");
             }
             finally
             {
@@ -1360,13 +1306,12 @@ namespace WpfApp1
         {
             frmRelacija prozor = new frmRelacija();
             prozor.ShowDialog();
-            string upit = "select relacijaID, pocetnaStanica as 'pocetna stanica',KrajnjaStanica as 'krajnja stanica',km,vremePolaska as 'vreme polaska'," +
-                    "vremeDolaska as 'vreme dolaska',peron,cena,p.naziv" +
+            string upit = "select relacijaID as 'Redni broj', pocetnaStanica as 'Početna stanica',krajnjaStanica as 'Krajnja stanica',km as 'Km',vremePolaska as 'Vreme polaska'," +
+                    "vremeDolaska as 'Vreme dolaska',peron as 'Peron',cena as 'Cena',p.naziv as 'Naziv prevoznika'" +
                     " from Relacija r inner join Prevoznik p on r.prevoznikID = p.prevoznikID";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
             DataTable dt = new DataTable("Relacija");
             dataAdapter.Fill(dt);
-            //sto se ovde poziva dataGridCentralni
             dataGridCentralni.ItemsSource = dt.DefaultView;
         }
 
@@ -1382,12 +1327,12 @@ namespace WpfApp1
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
 
                 pomocni = red;
-                string upit = "select * from Relacija where relacijaID = " + red["relacijaID"];
+                string upit = "select * from Relacija where relacijaID = " + red["Redni broj"];
                 SqlCommand komanda = new SqlCommand(upit, konekcija);
                 SqlDataReader citac = komanda.ExecuteReader();
                 while (citac.Read())
                 {
-                    //podaci iz baze
+                    
                     prozor.txtPocetnaStanica.Text = citac["pocetnaStanica"].ToString();
                     prozor.txtKrajnjaStanica.Text = citac["krajnjaStanica"].ToString();
                     prozor.txtKilometri.Text = citac["km"].ToString();
@@ -1397,7 +1342,6 @@ namespace WpfApp1
                     prozor.txtPeron.Text = citac["peron"].ToString();
                     prozor.txtCena.Text = citac["cena"].ToString();
                     prozor.cbxPrevoznik.SelectedValue = citac["prevoznikID"].ToString();
-                    //fali za strane kljuceve
 
                     prozor.ShowDialog();
                 }
@@ -1405,7 +1349,7 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
             }
             finally
             {
@@ -1425,8 +1369,8 @@ namespace WpfApp1
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
-                string upit = "Delete from Relacija where relacijaID= " + red["relacijaID"];
-                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite Relaciju?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                string upit = "Delete from Relacija where relacijaID= " + red["Redni broj"];
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da želite da obrišete relaciju?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
                 {
@@ -1438,13 +1382,13 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguce obrisati red.", "Obavestenje");
+                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguće obrisati red.", "Obaveštenje");
             }
             finally
             {
@@ -1460,8 +1404,8 @@ namespace WpfApp1
         {
             frmKarta prozor = new frmKarta();
             prozor.ShowDialog();
-            string upit = "select kartaID,brKarte as 'broj karte', vrsta, r.pocetnaStanica + '-' + r.krajnjaStanica as relacija," +
-                    "ko.ime + ' ' + ko.prezime as korisnik" +
+            string upit = "select kartaID as 'Redni broj',brKarte as 'Broj karte', vrsta as 'Vrsta', r.pocetnaStanica + '-' + r.krajnjaStanica as Relacija," +
+                    "ko.ime + ' ' + ko.prezime as Korisnik" +
                     " from Karta k " +
                     "inner join Relacija r on k.relacijaID=r.relacijaID" +
                     " inner join Korisnik ko  on k.korisnikID=ko.korisnikID";
@@ -1483,26 +1427,24 @@ namespace WpfApp1
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
 
                 pomocni = red;
-                string upit = "select * from Karta where kartaID = " + red["kartaID"];
+                string upit = "select * from Karta where kartaID = " + red["Redni broj"];
                 SqlCommand komanda = new SqlCommand(upit, konekcija);
                 SqlDataReader citac = komanda.ExecuteReader();
                 while (citac.Read())
                 {
-                    //podaci iz baze
+                    
                     prozor.txtBrKarte.Text = citac["brKarte"].ToString();
                     prozor.txtVrstaKarte.Text = citac["vrsta"].ToString();
                     prozor.cbxRelacija.SelectedValue = citac["relacijaID"].ToString();
                     prozor.cbxKorisnik.SelectedValue = citac["korisnikID"].ToString();
-                   
-                    //fali za strane kljuceve
-
+    
                     prozor.ShowDialog();
                 }
 
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
             }
             finally
             {
@@ -1522,8 +1464,8 @@ namespace WpfApp1
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
-                string upit = "Delete from Karta where kartaID= " + red["redni broj"];
-                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite Kartu?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                string upit = "Delete from Karta where kartaID= " + red["Redni broj"];
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da želite da obrišete kartu?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
                 {
@@ -1535,13 +1477,13 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Postoje povezani podaci u drugoj tabeli. Nije moguce obrisati red.", "Obavestenje");
+                MessageBox.Show("Postoje povezani podaci u drugoj tabeli! Nije moguće obrisati red.", "Obaveštenje");
             }
             finally
             {
@@ -1558,9 +1500,9 @@ namespace WpfApp1
             frmVozilo prozor = new frmVozilo();
 
             prozor.ShowDialog();
-            string upit = "select voziloID, brSasije as 'broj sasije', kubikaza, konjskaSnaga as 'konjske snage',brSedista as 'broj sedista',nosivost,masa,boja, " +
-                   "t.naziv as tip, m.naziv as marka, mo.naziv as model, vo.ime + ' ' + vo.prezime as vozac," +
-                   " p.naziv as prevoznik " +
+            string upit = "select voziloID as 'Redni broj', brSasije as 'Broj šasije', kubikaza as 'Kubikaža', konjskaSnaga as 'Konjske snaga',brSedista as 'Broj sedišta',nosivost as 'Nosivost',masa as 'Masa',boja as 'Boja', " +
+                   "t.naziv as 'Tip', m.naziv as 'Marka', mo.naziv as 'Model', vo.ime + ' ' + vo.prezime as 'Vozač'," +
+                   " p.naziv as 'Prevoznik' " +
                    "from Vozilo v " +
                    "inner join TipVozila t on v.tipID=t.tipID " +
                    "inner join MarkaVozila m on m.markaID=v.markaID " +
@@ -1570,7 +1512,7 @@ namespace WpfApp1
             SqlDataAdapter dataAdapter = new SqlDataAdapter(upit, konekcija);
             DataTable dt = new DataTable("Vozilo");
             dataAdapter.Fill(dt);
-            //sto se ovde poziva dataGridCentralni
+            
             dataGridCentralni.ItemsSource = dt.DefaultView;
         }
 
@@ -1586,7 +1528,7 @@ namespace WpfApp1
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
 
                 pomocni = red;
-                string upit = "select * from Vozilo where voziloID = " + red["voziloID"];
+                string upit = "select * from Vozilo where voziloID = " + red["Redni broj"];
                 SqlCommand komanda = new SqlCommand(upit, konekcija);
                 SqlDataReader citac = komanda.ExecuteReader();
                 while (citac.Read())
@@ -1606,7 +1548,7 @@ namespace WpfApp1
                     prozor.cbxModel.SelectedValue = citac["modelID"].ToString();
                     prozor.cbxVozac.SelectedValue = citac["vozacID"].ToString();
                     prozor.cbxPrevoznik.SelectedValue = citac["prevoznikID"].ToString();
-                    //fali za strane kljuceve
+                    
 
                     prozor.ShowDialog();
                 }
@@ -1614,7 +1556,7 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
             }
             finally
             {
@@ -1634,8 +1576,8 @@ namespace WpfApp1
             {
                 konekcija.Open();
                 DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
-                string upit = "Delete from Vozilo where voziloID= " + red["voziloID"];
-                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da zelite da obrisite Vozilo?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                string upit = "Delete from Vozilo where voziloID= " + red["Redni broj"];
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni da želite da obrišete vozilo?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
                 {
@@ -1647,7 +1589,7 @@ namespace WpfApp1
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Niste selektovali red.", "Obavestenje");
+                MessageBox.Show("Niste selektovali red!", "Obaveštenje");
 
 
             }

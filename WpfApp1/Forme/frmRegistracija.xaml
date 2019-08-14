@@ -36,8 +36,8 @@
         <TextBox Name="txtGradKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,292,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="0.513,-0.043"/>
 
 
-        <Button Name="btnSacuvaj"  Content="Sacuvaj" HorizontalAlignment="Left" Margin="56,388,0,0" VerticalAlignment="Top" Width="108" Background="Black" BorderBrush="#FFFDCA65" FontWeight="Bold" Foreground="#FFFDCA65" RenderTransformOrigin="0.681,0.578" Click="btnSacuvaj_Click" />
-        <Button Name="btnOtkazi" Content="Otkazi" HorizontalAlignment="Left" Margin="188,388,-33,0" VerticalAlignment="Top" Width="108" Background="Black" BorderBrush="#FFFDCA65" FontWeight="Bold" Foreground="#FFFDCA65" RenderTransformOrigin="1.194,0.375" Click="btnOtkazi_Click"/>
+        <Button Name="btnSacuvaj"  Content="Sačuvaj" HorizontalAlignment="Left" Margin="56,388,0,0" VerticalAlignment="Top" Width="108" Background="Black" BorderBrush="#FFFDCA65" FontWeight="Bold" Foreground="#FFFDCA65" RenderTransformOrigin="0.681,0.578" Click="btnSacuvaj_Click" />
+        <Button Name="btnOtkazi" Content="Otkaži" HorizontalAlignment="Left" Margin="188,388,-33,0" VerticalAlignment="Top" Width="108" Background="Black" BorderBrush="#FFFDCA65" FontWeight="Bold" Foreground="#FFFDCA65" RenderTransformOrigin="1.194,0.375" Click="btnOtkazi_Click"/>
 
 
     </Grid>

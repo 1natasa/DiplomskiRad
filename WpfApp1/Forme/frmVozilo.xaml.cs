@@ -29,7 +29,7 @@ namespace WpfApp1.Forme
 
             try
             {
-                //.Text stavimo kad imamo broj
+                
                 //cbxTipVozila
                 konekcija.Open();
                 string vratiTipVozila = "select tipID, naziv from TipVozila";
@@ -68,9 +68,6 @@ namespace WpfApp1.Forme
                 daPrevoznik.Fill(dtPrevoznik);
                 cbxPrevoznik.ItemsSource = dtPrevoznik.DefaultView;
 
-
-
-
             }
 
             finally
@@ -88,8 +85,7 @@ namespace WpfApp1.Forme
         {
             try
             {
-                //.Text stavimo kad imamo broj
-                //
+                
                 konekcija.Open();
 
                 if (MainWindow.azuriraj)
@@ -97,7 +93,7 @@ namespace WpfApp1.Forme
                     DataRowView red = (DataRowView)MainWindow.pomocni;
 
                     string update = @"Update Vozilo
-                                        set brSasije='" + txtBrSasije.Text + "', kubikaza=" + txtKubikaza.Text + " , konjskaSnaga=" + txtKonjskeSnage.Text + ", boja='" + txtBoja.Text + "', brSedista=" + txtBrSedista.Text + ",nosivost=" + txtNosivost.Text + ",masa=" + txtMasa.Text + ", tipID=" + cbxTip.SelectedValue + ", markaID=" + cbxMarka.SelectedValue + ", modelID=" + cbxModel.SelectedValue + ", vozacID=" + cbxVozac.SelectedValue + ", prevoznikID=" + cbxPrevoznik.SelectedValue + " where voziloID = " + red["voziloID"];
+                                        set brSasije='" + txtBrSasije.Text + "', kubikaza=" + txtKubikaza.Text + " , konjskaSnaga=" + txtKonjskeSnage.Text + ", boja='" + txtBoja.Text + "', brSedista=" + txtBrSedista.Text + ",nosivost=" + txtNosivost.Text + ",masa=" + txtMasa.Text + ", tipID=" + cbxTip.SelectedValue + ", markaID=" + cbxMarka.SelectedValue + ", modelID=" + cbxModel.SelectedValue + ", vozacID=" + cbxVozac.SelectedValue + ", prevoznikID=" + cbxPrevoznik.SelectedValue + " where voziloID = " + red["Redni broj"];
                     SqlCommand cmd = new SqlCommand(update, konekcija);
                     cmd.ExecuteNonQuery();
                     MainWindow.pomocni = null;
@@ -109,13 +105,13 @@ namespace WpfApp1.Forme
                 values(" + txtBrSasije.Text + "," + txtKubikaza.Text + "," + txtKonjskeSnage.Text + ",'" + txtBoja.Text + "'," + txtBrSedista.Text + "," + txtNosivost.Text + "," + txtMasa.Text + ",'" + cbxTip.SelectedValue + "','" + cbxMarka.SelectedValue + "','" + cbxModel.SelectedValue + "','" + cbxVozac.SelectedValue + "','" + cbxPrevoznik.SelectedValue + "');";
                     SqlCommand cmd = new SqlCommand(insert, konekcija);
                     cmd.ExecuteNonQuery();
-                    this.Close(); //ovo zatvara formu
+                    this.Close(); 
                 }
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Unos odredjenih podataka nije validan", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Unos određenih podataka nije validan!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {

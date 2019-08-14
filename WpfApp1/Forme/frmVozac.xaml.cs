@@ -39,7 +39,7 @@ namespace WpfApp1.Forme
                     DataRowView red = (DataRowView)MainWindow.pomocni;
 
                     string update = @"Update Vozac
-                                        set ime='" + txtImeVozac.Text + "', prezime='" + txtPrezimeVozac.Text + "' , jmbg='" + txtJmbgVozac.Text + "', kontakt='" + txtKontaktVozac.Text + "', dozvola='" + txtVozackaDoz.Text + "',adresa='" + txtAdresaVozac.Text + "',grad='" + txtGradVozac.Text + "' where vozacID = " + red["vozacID"];
+                                        set ime='" + txtImeVozac.Text + "', prezime='" + txtPrezimeVozac.Text + "' , jmbg='" + txtJmbgVozac.Text + "', kontakt='" + txtKontaktVozac.Text + "', dozvola='" + txtVozackaDoz.Text + "',adresa='" + txtAdresaVozac.Text + "',grad='" + txtGradVozac.Text + "' where vozacID = " + red["Redni broj"];
                     SqlCommand cmd = new SqlCommand(update, konekcija);
                     cmd.ExecuteNonQuery();
                     MainWindow.pomocni = null;
@@ -48,17 +48,26 @@ namespace WpfApp1.Forme
                 }
                 else
                 {
-                    string insert = @"insert into Vozac(ime,prezime,jmbg,kontakt,dozvola,adresa,grad)
+
+                    if (txtImeVozac.Text == "" || txtPrezimeVozac.Text == "" || txtAdresaVozac.Text == "" || txtGradVozac.Text == "" || txtJmbgVozac.Text == "" || txtKontaktVozac.Text == "" || txtVozackaDoz.Text == "")
+                    {
+
+                        MessageBox.Show("Unos određenih podataka nije validan!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        string insert = @"insert into Vozac(ime,prezime,jmbg,kontakt,dozvola,adresa,grad)
                 values('" + txtImeVozac.Text + "','" + txtPrezimeVozac.Text + "','" + txtJmbgVozac.Text + "','" + txtKontaktVozac.Text + "','" + txtVozackaDoz.Text + "','" + txtAdresaVozac.Text + "','" + txtGradVozac.Text + "');"; //@ se stavlja da on gleda kao string, a ako nema @ smatrao bi da je to folder
-                    SqlCommand cmd = new SqlCommand(insert, konekcija);
-                    cmd.ExecuteNonQuery();
-                    this.Close(); //ovo zatvara formu
+                        SqlCommand cmd = new SqlCommand(insert, konekcija);
+                        cmd.ExecuteNonQuery();
+                        this.Close(); //ovo zatvara formu
+                    }
                 }
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Unos odredjenih podataka nije validan", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Unos određenih podataka nije validan!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {

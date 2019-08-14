@@ -39,7 +39,7 @@ namespace WpfApp1.Forme
                     DataRowView red = (DataRowView)MainWindow.pomocni;
 
                     string update = @"Update Korisnik
-                                        set ime='" + txtImeKorisnik.Text + "', prezime='" + txtPrezimeKorisnik.Text + "' , jmbg='" + txtJmbgKorisnik.Text + "', kontakt='" + txtKontaktKorisnik.Text + "', adresa='" + txtAdresaKorisnik.Text + "', grad='" + txtGradKorisnik.Text + "' where korisnikID = " + red["korisnikID"];
+                                        set ime='" + txtImeKorisnik.Text + "', prezime='" + txtPrezimeKorisnik.Text + "' , jmbg='" + txtJmbgKorisnik.Text + "', kontakt='" + txtKontaktKorisnik.Text + "', adresa='" + txtAdresaKorisnik.Text + "', grad='" + txtGradKorisnik.Text + "' where korisnikID = " + red["Redni broj"];
                     SqlCommand cmd = new SqlCommand(update, konekcija);
                     cmd.ExecuteNonQuery();
                     MainWindow.pomocni = null;
@@ -58,7 +58,7 @@ namespace WpfApp1.Forme
             }
             catch (SqlException)
             {
-                MessageBox.Show("Unos odredjenih podataka nije validan", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Unos određenih podataka nije validan!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {

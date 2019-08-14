@@ -39,7 +39,7 @@ namespace WpfApp1.Forme
                     DataRowView red = (DataRowView)MainWindow.pomocni;
 
                     string update = @"Update MarkaVozila
-                                        set naziv='" + txtNaziv.Text + "' where markaID = " + red["markaID"];
+                                        set naziv='" + txtNaziv.Text + "' where markaID = " + red["Redni broj"];
                     SqlCommand cmd = new SqlCommand(update, konekcija);
                     cmd.ExecuteNonQuery();
                     MainWindow.pomocni = null;
@@ -47,17 +47,25 @@ namespace WpfApp1.Forme
                 }
                 else
                 {
-                    string insert = @"insert into MarkaVozila(naziv)
+                    if (txtNaziv.Text == "")
+                    {
+
+                        MessageBox.Show("Unos određenih podataka nije validan!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        string insert = @"insert into MarkaVozila(naziv)
                 values('" + txtNaziv.Text + "');"; //@ se stavlja da on gleda kao string, a ako nema @ smatrao bi da je to folder
-                    SqlCommand cmd = new SqlCommand(insert, konekcija);
-                    cmd.ExecuteNonQuery();
-                    this.Close(); //ovo zatvara formu
+                        SqlCommand cmd = new SqlCommand(insert, konekcija);
+                        cmd.ExecuteNonQuery();
+                        this.Close(); //ovo zatvara formu
+                    }
                 }
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Unos odredjenih podataka nije validan", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Unos određenih podataka nije validan!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {

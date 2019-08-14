@@ -33,37 +33,53 @@ namespace WpfApp1.Forme
             try
             {
                 konekcija.Open();
-                if (MainWindow.azuriraj)
+                //frmRegistracija frmRegistracija = new frmRegistracija();
+                if (txtImeKorisnik.Text == "")
                 {
-
-                    DataRowView red = (DataRowView)MainWindow.pomocni;
-
-                    string update = @"Update Korisnik
-                                        set ime='" + txtImeKorisnik.Text + "', prezime='" + txtPrezimeKorisnik.Text + "' , jmbg='" + txtJmbgKorisnik.Text + "', kontakt='" + txtKontaktKorisnik.Text + "', adresa='" + txtAdresaKorisnik.Text + "', grad='" + txtGradKorisnik.Text + "' where korisnikID = " + red["korisnikID"];
-                    SqlCommand cmd = new SqlCommand(update, konekcija);
-                    cmd.ExecuteNonQuery();
-                    MainWindow.pomocni = null;
-                    this.Close();
+                    MessageBox.Show("Niste uneli ime!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (txtPrezimeKorisnik.Text == "")
+                {
+                    MessageBox.Show("Niste uneli prezime!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (txtJmbgKorisnik.Text == "")
+                {
+                    MessageBox.Show("Niste uneli jmbg!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (txtJmbgKorisnik.Text.Length != 13)
+                {
+                    MessageBox.Show("Jmbg mora da ima 13 cifara!", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (txtKontaktKorisnik.Text == "")
+                {
+                    MessageBox.Show("Niste uneli kontakt!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (txtKontaktKorisnik.Text.Length < 6 || txtKontaktKorisnik.Text.Length > 10)
+                {
+                    MessageBox.Show("Kontakt mora da bude duži od 6 i kraći od 11 cifara!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (txtAdresaKorisnik.Text == "")
+                {
+                    MessageBox.Show("Niste uneli adresu!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (txtGradKorisnik.Text == "")
+                {
+                    MessageBox.Show("Niste uneli grad!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    // konekcija.Open();
                     string insert = @"insert into Korisnik(ime,prezime,jmbg,kontakt,adresa,grad)
                 values('" + txtImeKorisnik.Text + "','" + txtPrezimeKorisnik.Text + "','" + txtJmbgKorisnik.Text + "','" + txtKontaktKorisnik.Text + "','" + txtAdresaKorisnik.Text + "','" + txtGradKorisnik.Text + "');"; //@ se stavlja da on gleda kao string, a ako nema @ smatrao bi da je to folder
                     SqlCommand cmd = new SqlCommand(insert, konekcija);
                     cmd.ExecuteNonQuery();
-                    this.Close(); //ovo zatvara formu
-                    //frmLogovanje prozor = new frmLogovanje();
-                    //prozor.ShowDialog();
-                    
-                    
-                    
+                    this.Close();
+                    MessageBox.Show("Korisnik je uspešno registrovan!", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
             }
             catch (SqlException)
             {
-                MessageBox.Show("Unos odredjenih podataka nije validan", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Unos određenih podataka nije validan!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {
@@ -72,15 +88,16 @@ namespace WpfApp1.Forme
                 {
                     konekcija.Close();
                 }
-
+               
             }
+
+             //
         }
 
         private void btnOtkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            //frmLogovanje logovanje = new frmLogovanje();
-            //logovanje.ShowDialog();
+           
         }
     }
 }

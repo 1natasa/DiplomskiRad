@@ -41,7 +41,8 @@ namespace WpfApp1.Forme
                 cbxRelacija.ItemsSource = dtRelacija.DefaultView;
 
                 //cbxKorisnik
-                string vratiKorisnika = "select korisnikID, ime + ' ' + prezime as Korisnik from Korisnik";
+                frmLogovanje frmLogovanje = new frmLogovanje();
+                string vratiKorisnika = "select korisnikID, ime + ' ' + prezime as Korisnik from Korisnik where jmbg = '" + frmLogovanje.jmbgKorisnik + "'";
                 DataTable dtKorisnik = new DataTable();
                 SqlDataAdapter daKorisnik = new SqlDataAdapter(vratiKorisnika, konekcija);
                 daKorisnik.Fill(dtKorisnik);
@@ -74,7 +75,7 @@ namespace WpfApp1.Forme
                     DataRowView red = (DataRowView)MainWindow.pomocni;
 
                     string update = @"Update Karta
-                                        set brKarte='" + txtBrKarte.Text + "', vrsta='" + txtVrstaKarte.Text + "' , relacijaID=" + cbxRelacija.SelectedValue + ", korisnikID=" + cbxKorisnik.SelectedValue + " where kartaID = " + red["kartaID"];
+                                        set brKarte='" + txtBrKarte.Text + "', vrsta='" + txtVrstaKarte.Text + "' , relacijaID=" + cbxRelacija.SelectedValue + ", korisnikID=" + cbxKorisnik.SelectedValue + " where kartaID = " + red["Redni broj"];
                     SqlCommand cmd = new SqlCommand(update, konekcija);
                     cmd.ExecuteNonQuery();
                     MainWindow.pomocni = null;
@@ -92,7 +93,7 @@ namespace WpfApp1.Forme
             }
             catch (SqlException)
             {
-                MessageBox.Show("Unos odredjenih podataka nije validan", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Unos određenih podataka nije validan!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {
