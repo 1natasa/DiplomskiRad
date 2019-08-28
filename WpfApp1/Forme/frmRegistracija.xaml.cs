@@ -49,6 +49,9 @@ namespace WpfApp1.Forme
                 else if (txtJmbgKorisnik.Text.Length != 13)
                 {
                     MessageBox.Show("Jmbg mora da ima 13 cifara!", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                } else if (txtJmbgKorisnik.Text != txtPonovoJmbgKorisnik.Text)
+                {
+                    MessageBox.Show("Jmbg se ne poklapaju!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else if (txtKontaktKorisnik.Text == "")
                 {

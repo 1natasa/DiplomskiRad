@@ -57,10 +57,10 @@ namespace WpfApp1.Forme
                     else
                     {
                         string insert = @"insert into ModelVozila(naziv)
-                    values('" + txtNaziv.Text + "');"; //@ se stavlja da on gleda kao string, a ako nema @ smatrao bi da je to folder
+                    values('" + txtNaziv.Text + "');";
                         SqlCommand cmd = new SqlCommand(insert, konekcija);
                         cmd.ExecuteNonQuery();
-                        this.Close(); //ovo zatvara formu
+                        this.Close();
                     }
                 }
 

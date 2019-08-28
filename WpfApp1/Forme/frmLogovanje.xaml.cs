@@ -50,11 +50,11 @@ namespace WpfApp1.Forme
                     MainWindow prozor = new MainWindow();
                     this.Close();
                     prozor.ShowDialog();
-                    //konekcija.Close();
+                 
                 }
                 else
                 {
-                    //MessageBox.Show("Korisnik ne postoji! Registrujte se!");
+                    
                     if (txtImeKorisnik.Text == "")
                     {
                         MessageBox.Show("Niste uneli ime!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -62,10 +62,10 @@ namespace WpfApp1.Forme
                     else if (txtPrezimeKorisnik.Text == "")
                         MessageBox.Show("Niste uneli prezime!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                     else if (txtJmbgKorisnik.Text == "")
-                        MessageBox.Show("Niste uneli jmbg", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Niste uneli jmbg!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                     else
                          
-                        MessageBox.Show("Korisnik ne postoji!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Podaci nisu validni!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch {

@@ -47,12 +47,12 @@ namespace WpfApp1.Forme
                 }
                 else
                 {
-                    // konekcija.Open();
+                    
                     string insert = @"insert into Korisnik(ime,prezime,jmbg,kontakt,adresa,grad)
                 values('" + txtImeKorisnik.Text + "','" + txtPrezimeKorisnik.Text + "','" + txtJmbgKorisnik.Text + "','" + txtKontaktKorisnik.Text + "','" + txtAdresaKorisnik.Text + "','" + txtGradKorisnik.Text + "');"; //@ se stavlja da on gleda kao string, a ako nema @ smatrao bi da je to folder
                     SqlCommand cmd = new SqlCommand(insert, konekcija);
                     cmd.ExecuteNonQuery();
-                    this.Close(); //ovo zatvara formu
+                    this.Close();
                 }
 
             }

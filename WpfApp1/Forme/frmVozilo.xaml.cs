@@ -78,6 +78,7 @@ namespace WpfApp1.Forme
                     konekcija.Close();
                 }
 
+
             }
         }
 

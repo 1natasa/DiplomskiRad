@@ -28,12 +28,14 @@
         <TextBox Name="txtPrezimeKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,101,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.558,-0.935" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A"/>
         <Label Content="JMBG" HorizontalAlignment="Left" Margin="56,151,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75"/>
         <TextBox Name="txtJmbgKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,151,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.558,0.261"/>
-        <Label Content="Kontakt" HorizontalAlignment="Left" Margin="56,202,0,0" VerticalAlignment="Top"  FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75" RenderTransformOrigin="0.513,-0.32"/>
-        <TextBox Name="txtKontaktKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,202,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.696,0.5"/>
-        <Label Content="Adresa" HorizontalAlignment="Left" Margin="56,247,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75" RenderTransformOrigin="0.607,0.14"/>
-        <TextBox Name="txtAdresaKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,247,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.108,0.652" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A"/>
-        <Label Content="Grad" HorizontalAlignment="Left" Margin="56,292,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.712" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75"/>
-        <TextBox Name="txtGradKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,292,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="0.513,-0.043"/>
+        <Label Content="Ponovite JMBG" HorizontalAlignment="Left" Margin="56,198,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="108" RenderTransformOrigin="0.373,2.72"/>
+        <TextBox Name="txtPonovoJmbgKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,198,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.558,0.261"/>
+        <Label Content="Kontakt" HorizontalAlignment="Left" Margin="56,239,0,0" VerticalAlignment="Top"  FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75" RenderTransformOrigin="0.513,-0.32"/>
+        <TextBox Name="txtKontaktKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,239,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="1.696,0.5"/>
+        <Label Content="Adresa" HorizontalAlignment="Left" Margin="56,289,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75" RenderTransformOrigin="0.607,0.14"/>
+        <TextBox Name="txtAdresaKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,289,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.108,0.652" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A"/>
+        <Label Content="Grad" HorizontalAlignment="Left" Margin="56,328,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.712" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="75"/>
+        <TextBox Name="txtGradKorisnik" HorizontalAlignment="Left" Height="23" Margin="148,328,-5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF0D0D0E" CaretBrush="#FF04000A" RenderTransformOrigin="0.513,-0.043"/>
 
 
         <Button Name="btnSacuvaj"  Content="Sačuvaj" HorizontalAlignment="Left" Margin="56,388,0,0" VerticalAlignment="Top" Width="108" Background="Black" BorderBrush="#FFFDCA65" FontWeight="Bold" Foreground="#FFFDCA65" RenderTransformOrigin="0.681,0.578" Click="btnSacuvaj_Click" />

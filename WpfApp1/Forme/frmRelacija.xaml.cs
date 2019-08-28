@@ -71,10 +71,10 @@ namespace WpfApp1.Forme
                 else
                 {
                     string insert = @"insert into Relacija(pocetnaStanica,krajnjaStanica,km,vremePolaska,vremeDolaska,peron,cena,prevoznikID)
-                values('" + txtPocetnaStanica.Text + "','" + txtKrajnjaStanica.Text + "','" + txtKilometri.Text + "','" + txtVremePolaska.Text + "','"+ txtVremeDolaska.Text +"'," + txtPeron.Text + ",'" + txtCena.Text + "','" + cbxPrevoznik.SelectedValue + "');"; //@ se stavlja da on gleda kao string, a ako nema @ smatrao bi da je to folder
+                values('" + txtPocetnaStanica.Text + "','" + txtKrajnjaStanica.Text + "','" + txtKilometri.Text + "','" + txtVremePolaska.Text + "','"+ txtVremeDolaska.Text +"'," + txtPeron.Text + ",'" + txtCena.Text + "','" + cbxPrevoznik.SelectedValue + "');"; 
                     SqlCommand cmd = new SqlCommand(insert, konekcija);
                     cmd.ExecuteNonQuery();
-                    this.Close(); //ovo zatvara formu
+                    this.Close(); 
                 }
 
             }

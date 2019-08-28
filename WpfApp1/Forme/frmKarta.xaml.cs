@@ -26,13 +26,11 @@ namespace WpfApp1.Forme
         {
             InitializeComponent();
             txtBrKarte.Focus();
-            //txtVrstaKarte.Focus();
 
             try
             {
 
                 //cbxRelacija
-                //komentar
                 konekcija.Open();
                 string vratiRelaciju = "select relacijaID, pocetnaStanica + '-' + krajnjaStanica as Relacija, peron, cena  from Relacija";
                 DataTable dtRelacija = new DataTable();
@@ -65,9 +63,6 @@ namespace WpfApp1.Forme
         {
             try
             {
-                //.Text stavimo kad imamo broj
-                //
-
                 konekcija.Open();
 
                 if (MainWindow.azuriraj)
@@ -87,7 +82,7 @@ namespace WpfApp1.Forme
                     values(" + txtBrKarte.Text + ",'" + txtVrstaKarte.Text + "','" + cbxRelacija.SelectedValue + "','" + cbxKorisnik.SelectedValue + "');"; //@ se stavlja da on gleda kao string, a ako nema @ smatrao bi da je to folder
                     SqlCommand cmd = new SqlCommand(insert, konekcija);
                     cmd.ExecuteNonQuery();
-                    this.Close(); //ovo zatvara formu
+                    this.Close();
                 }
 
             }

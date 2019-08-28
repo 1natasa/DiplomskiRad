@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.Forme"
         mc:Ignorable="d"
-        Title="frmRelacija" Height="450" Width="800">
+        Title="frmRelacija" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#ffcc66">
         <Grid Background="White" Width="500" Margin="146,32,146,39">
             <Label Content="Početna stanica" HorizontalAlignment="Left" Margin="87,26,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft JhengHei UI" Width="105" RenderTransformOrigin="1.573,0.72"/>
